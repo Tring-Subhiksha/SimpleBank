@@ -35,7 +35,7 @@ class App
         }
 
     }
-    void curr_balance(){
+    void currbalance(){
         System.out.println("The current balance of your account:" +balance);
     }
     void display(){
@@ -68,7 +68,7 @@ class App
                     long amt = c.nextLong();
                     ac.withdraw(amt);
                 }
-                case 4 -> ac.curr_balance();
+                case 4 -> ac.currbalance();
                 case 5 -> {
                     System.out.println("\nExiting...");
                     System.exit(0);
