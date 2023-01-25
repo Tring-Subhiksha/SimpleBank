@@ -5,13 +5,13 @@ import java.lang.*;
 
 class App
 {
-    String user_name;
+    String username;
     long balance;
-    long acc_number;
+    long accnumber;
 
     App(String name,long number,long bal){
-        user_name=name;
-        acc_number=number;
+        username=name;
+        accnumber=number;
         balance=bal;
     }
     void deposit()
@@ -40,8 +40,8 @@ class App
         System.out.println("The current balance of your account:" +balance);
     }
     void display(){
-        System.out.println("The Accounts holder name is "+user_name);
-        System.out.println("\nThe Accounts number of the User account is "+acc_number);
+        System.out.println("The Accounts holder name is "+username);
+        System.out.println("\nThe Accounts number of the User account is "+accnumber);
         System.out.println("\nThe Balance of your account is "+balance);
     }
     public static void main(String[] args){
