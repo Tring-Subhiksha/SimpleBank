@@ -1,13 +1,13 @@
 package org.example;
 
 import java.util.*;
-
+import java.util.logging.*;
 class App
 {
     String username;
     long balance;
     long accnumber;
-
+    static Logger l=Logger.getLogger(".com.api.jar");
     App(String name,long number,long bal){
         username=name;
         accnumber=number;
@@ -16,11 +16,12 @@ class App
     void deposit()
     {
         Scanner c=new Scanner(System.in);
-        System.out.println("Enter the amount to deposit your account:");
+        l.info("Enter the amount to deposit your account:");
         long amt=c.nextLong();
         balance=balance+amt;
-        System.out.println("The deposit of the amount is:"+balance);
-        System.out.println("\n");
+        
+        l.log(Level.INFO, () ->"The deposit of the amount is:"+balance);
+        l.info("\n");
 
     }
     void withdraw(long amt2)
@@ -28,52 +29,52 @@ class App
         if(balance>=amt2)
         {
             balance=balance-amt2;
-            System.out.println("The Withdraw of the amount is:"+balance);
+            l.log(Level.INFO, () ->"The Withdraw of the amount is:"+balance);
         }
         else{
-            System.out.println("The Amount is less than your Balance \tTransaction failed");
+            l.info("The Amount is less than your Balance \tTransaction failed");
         }
 
     }
     void currbalance(){
-        System.out.println("The current balance of your account:" +balance);
+        l.log(Level.INFO, () ->"The current balance of your account:" +balance);
     }
     void display(){
-        System.out.println("The Accounts holder name is "+username);
-        System.out.println("\nThe Accounts number of the User account is "+accnumber);
-        System.out.println("\nThe Balance of your account is "+balance);
+        l.log(Level.INFO, () ->"The Accounts holder name is "+username);
+        l.log(Level.INFO, () ->"\nThe Accounts number of the User account is "+accnumber);
+        l.log(Level.INFO, () ->"\nThe Balance of your account is "+balance);
     }
     public static void main(String[] args){
         Scanner s=new Scanner(System.in);
 
-        System.out.println("Enter a Account Holder Name:");
+        l.info("Enter a Account Holder Name:");
         String h=s.nextLine();
-        System.out.println("Enter the Account Number:");
+        l.info("Enter the Account Number:");
         long a=s.nextLong();
-        System.out.println("Enter the Balance amount:");
+        l.info("Enter the Balance amount:");
         long b=s.nextLong();
         App ac=new App(h,a,b);
 
         while(true){
-            System.out.println("\n Bank Transaction details\n1.Show your account details\n2.Deposit your amount\n3.Withdraw your amount\n4.Check current balance of your account\n5.Exit\n");
-            System.out.println("\nEnter your choice:");
+            l.info("\n Bank Transaction details\n1.Show your account details\n2.Deposit your amount\n3.Withdraw your amount\n4.Check current balance of your account\n5.Exit\n");
+            l.info("\nEnter your choice:");
             int ch=s.nextInt();
 
             switch (ch) {
                 case 1 -> ac.display();
                 case 2 -> ac.deposit();
                 case 3 -> {
-                    System.out.println("Enter the amount to Withdraw your account:");
+                    l.info("Enter the amount to Withdraw your account:");
                     Scanner c = new Scanner(System.in);
                     long amt = c.nextLong();
                     ac.withdraw(amt);
                 }
                 case 4 -> ac.currbalance();
                 case 5 -> {
-                    System.out.println("\nExiting...");
+                    l.info("\nExiting...");
                     System.exit(0);
                 }
-                default -> System.out.println("Please enter correct choice");
+                default -> l.info("Please enter correct choice");
             }
         }
     }
