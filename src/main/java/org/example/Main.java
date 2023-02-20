@@ -44,6 +44,8 @@ class App
         l.log(Level.INFO, () ->"\nThe Accounts number of the User account is "+accnumber);
         l.log(Level.INFO, () ->"\nThe Balance of your account is "+balance);
     }
+}
+class Bank{
     public static void main(String[] args){
         Scanner s=new Scanner(System.in);
 
