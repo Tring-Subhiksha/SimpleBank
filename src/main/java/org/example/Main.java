@@ -4,9 +4,9 @@ import java.util.*;
 import java.util.logging.*;
 class App
 {
-    String username;
-    long balance;
-    long accnumber;
+    private String username;
+    private long balance;
+    private long accnumber;
     static Logger l=Logger.getLogger(".com.api.jar");
     App(String name,long number,long bal){
         username=name;
